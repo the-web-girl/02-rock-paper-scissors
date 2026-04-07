@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pierre · Feuille · Ciseaux</title>
+  <meta name="description" content="Jeu Pierre-Feuille-Ciseaux contre l'ordinateur, accessible clavier et lecteur d'écran." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#choices">Aller au jeu</a>
+
+  <!-- Live region for screen readers -->
+  <div id="live" aria-live="assertive" aria-atomic="true" class="sr-only" role="status"></div>
+
+  <header>
+    <h1>✊ Pierre<span>·</span>Feuille<span>·</span>Ciseaux</h1>
+    <p class="subtitle">Vous contre l'ordinateur</p>
+  </header>
+
+  <!-- Score -->
+  <section aria-labelledby="score-heading">
+    <h2 id="score-heading" class="sr-only">Score</h2>
+    <div class="scoreboard" role="group" aria-label="Tableau des scores">
+      <div class="score-col">
+        <span class="score-label" id="label-player">Vous</span>
+        <span class="score-value" id="score-player" aria-labelledby="label-player" aria-live="polite">0</span>
+      </div>
+      <div class="score-divider" aria-hidden="true"></div>
+      <div class="score-col">
+        <span class="score-label" id="label-draws">Nuls</span>
+        <span class="score-value" id="score-draws" aria-labelledby="label-draws" aria-live="polite">0</span>
+      </div>
+      <div class="score-divider" aria-hidden="true"></div>
+      <div class="score-col">
+        <span class="score-label" id="label-cpu">Ordi</span>
+        <span class="score-value" id="score-cpu" aria-labelledby="label-cpu" aria-live="polite">0</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Choices -->
+  <section class="choices-section" aria-labelledby="choices-heading" id="choices">
+    <h2 id="choices-heading" class="sr-only">Choisissez votre coup</h2>
+    <p class="choices-label" aria-hidden="true">Votre choix — touches : P · F · C</p>
+    <div class="choices" role="group" aria-label="Choisissez Pierre, Feuille ou Ciseaux">
+      <button class="choice-btn" data-choice="pierre" aria-label="Pierre (touche P)">
+        <span class="choice-key" aria-hidden="true">P</span>
+        <span class="choice-emoji" aria-hidden="true">✊</span>
+        <span class="choice-name" aria-hidden="true">Pierre</span>
+      </button>
+      <button class="choice-btn" data-choice="feuille" aria-label="Feuille (touche F)">
+        <span class="choice-key" aria-hidden="true">F</span>
+        <span class="choice-emoji" aria-hidden="true">✋</span>
+        <span class="choice-name" aria-hidden="true">Feuille</span>
+      </button>
+      <button class="choice-btn" data-choice="ciseaux" aria-label="Ciseaux (touche C)">
+        <span class="choice-key" aria-hidden="true">C</span>
+        <span class="choice-emoji" aria-hidden="true">✌️</span>
+        <span class="choice-name" aria-hidden="true">Ciseaux</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Arena / résultat -->
+  <section aria-labelledby="arena-heading">
+    <h2 id="arena-heading" class="sr-only">Résultat du round</h2>
+    <div class="arena" id="arena" aria-label="Zone de résultat">
+      <p class="arena-placeholder" id="arena-placeholder">Choisissez un coup pour commencer !</p>
+    </div>
+  </section>
+
+  <!-- Remise à zéro -->
+  <button class="reset-btn" id="reset-btn" aria-label="Remettre le score à zéro">
+    Réinitialiser le score
+  </button>
+
+  <footer>
+    <p>Pierre bat Ciseaux · Ciseaux bat Feuille · Feuille bat Pierre</p>
+  </footer>
+<script src="./app.js"></script>
+</body>
+</html>
